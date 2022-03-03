@@ -40,19 +40,23 @@ Contains the cost of every tile type. Each tile can be accessed over tiles[tile_
 
 
 ## Member Functions
-void [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_field(Vector2 target_cell Array important_cells=[]))
-void [create_flow_fieldv(Array target_cells Array important_cells=[])] (#create_flow_fieldv(Array target_cells Array important_cells=[]))
-Vector2 [get_cell_direction(Vector2 cell)](#get_cell_direction(Vector2 cell))
-int [get_cell_distance(Vector2 cell)](#get_cell_distance(Vector2 cell))
+void [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_fieldvector2-target_cell-array-important_cells=[]))
+
+void [create_flow_fieldv(Array target_cells Array important_cells=[])] (#create_flow_fieldvarray-target_cells-array-important_cells=[]))
+
+Vector2 [get_cell_direction(Vector2 cell)](#get_cell_directionvector2-cell))
+
+int [get_cell_distance(Vector2 cell)](#get_cell_distancevector2-cell))
+
 void [update_play_field()] (#update_play_field())
 
 
 ## Member Function Description
 
-###create_flow_field(Vector2 target_cell Array important_cells=[])
+### create_flow_field(Vector2 target_cell Array important_cells=[])
 Creates the Flow Field where every cell points towards target_cell. If every tile contained in important_cells got updated, the flow_field stops calculating. If there are no important cells all reachable cells from the target_cell will be calculated.
 
-###create_flow_fieldv(Array target_cells Array important_cells=[]
+### create_flow_fieldv(Array target_cells Array important_cells=[]
 Creates the Flow Field where every cell points towards the closest target_cell in target_cells.If every tile contained in important_cells got updated, the flow_field stops calculating. If there are no important cells all reachable cells from the target_cell will be calculated.
 
 ### Vector2 get_cell_direction(Vector2 cell)

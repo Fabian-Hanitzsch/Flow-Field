@@ -17,8 +17,8 @@ Open **Project > Project Settings** at the top of the editor and go to the **Plu
 Flow Field is a TileMap and can be added over the add Node menu. If you already have a tilemap you wanna keep using, add the script **addons -> FlowField -> FlowField.gd** to the tilemap. If the node already has a script, change extend TileMap to extend FlowField. You might need to check with the Flow Field script if you are overwriting some of its functions.
 
 Once you have the Flow Field in your scene you can set the cost of every tile type. For this go to your tilemap under the section Tile Costs. There a list of every tilename in the tileset with its cost is shown. The cost is initialized as one but can be changed from 0 to 254. 0 counts here as an untraversable tile.
-When the costs are set you can create a Flow Field through code. With the function *create_flow_field(Vector2 target_cell)* a Flow Field is created where every cell has a direction that points to the next cell to reach the target_cell as fast as possible. If you change the TileMap during runtime you need to call the function *update_play_field()* before you create the Flow Field or else the Flow Field will be based on an outdated map. The function is not yet optimized so only call it if you changed the TileMap.
-When the Flow Field is created you can get the direction to the next cell towards the target with *get_cell_direction(Vector2 cell)*.
+When the costs are set you can create a Flow Field through code. With the function [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_fieldvector2-target_cell-array-important_cells)) a Flow Field is created where every cell has a direction that points to the next cell to reach the target_cell as fast as possible. If you change the TileMap during runtime you need to call the function [update_play_field()] (#update_play_field) before you create the Flow Field or else the Flow Field will be based on an outdated map. The function is not yet optimized so only call it if you changed the TileMap.
+When the Flow Field is created you can get the direction to the next cell towards the target with [get_cell_direction(Vector2 cell)](#get_cell_directionvector2-cell)).
 
 ## Member Variables
 
@@ -40,15 +40,15 @@ Contains the cost of every tile type. Each tile can be accessed over tiles[tile_
 
 
 ## Member Functions
-void [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_fieldvector2-target_cell-array-important_cells=[]))
+void [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_fieldvector2-target_cell-array-important_cells))
 
-void [create_flow_fieldv(Array target_cells Array important_cells=[])] (#create_flow_fieldvarray-target_cells-array-important_cells=[]))
+void [create_flow_fieldv(Array target_cells Array important_cells=[])] (#create_flow_fieldvarray-target_cells-array-important_cells))
 
 Vector2 [get_cell_direction(Vector2 cell)](#get_cell_directionvector2-cell))
 
 int [get_cell_distance(Vector2 cell)](#get_cell_distancevector2-cell))
 
-void [update_play_field()] (#update_play_field())
+void [update_play_field()] (#update_play_field)
 
 
 ## Member Function Description
@@ -56,7 +56,7 @@ void [update_play_field()] (#update_play_field())
 ### create_flow_field(Vector2 target_cell Array important_cells=[])
 Creates the Flow Field where every cell points towards target_cell. If every tile contained in important_cells got updated, the flow_field stops calculating. If there are no important cells all reachable cells from the target_cell will be calculated.
 
-### create_flow_fieldv(Array target_cells Array important_cells=[]
+### create_flow_fieldv(Array target_cells Array important_cells=[])
 Creates the Flow Field where every cell points towards the closest target_cell in target_cells.If every tile contained in important_cells got updated, the flow_field stops calculating. If there are no important cells all reachable cells from the target_cell will be calculated.
 
 ### Vector2 get_cell_direction(Vector2 cell)

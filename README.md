@@ -22,9 +22,9 @@ When the Flow Field is created you can get the direction to the next cell toward
 
 ## Member Variables
 
-boolean [allow_diagonals] (###allow_diagonals)
-boolean [diagonals_need_neighbors] (###diagonals_need_neighbors)
-Dictionary [tiles] (###tiles)
+boolean [allow_diagonals] (#allow_diagonals)
+boolean [diagonals_need_neighbors] (#diagonals_need_neighbors)
+Dictionary [tiles] (#tiles)
 
 ## Member Variable Description
 
@@ -40,11 +40,11 @@ Contains the cost of every tile type. Each tile can be accessed over tiles[tile_
 
 
 ## Member Functions
-void [create_flow_field(Vector2 target_cell Array important_cells=[])] (###create_flow_field(Vector2 target_cell Array important_cells=[]))
-void [create_flow_fieldv(Array target_cells Array important_cells=[])] (###create_flow_fieldv(Array target_cells Array important_cells=[]))
-Vector2 [get_cell_direction(Vector2 cell)](###get_cell_direction(Vector2 cell))
-int [get_cell_distance(Vector2 cell)](###get_cell_distance(Vector2 cell))
-void [update_play_field()] (###update_play_field())
+void [create_flow_field(Vector2 target_cell Array important_cells=[])] (#create_flow_field(Vector2 target_cell Array important_cells=[]))
+void [create_flow_fieldv(Array target_cells Array important_cells=[])] (#create_flow_fieldv(Array target_cells Array important_cells=[]))
+Vector2 [get_cell_direction(Vector2 cell)](#get_cell_direction(Vector2 cell))
+int [get_cell_distance(Vector2 cell)](#get_cell_distance(Vector2 cell))
+void [update_play_field()] (#update_play_field())
 
 
 ## Member Function Description
@@ -58,9 +58,9 @@ Creates the Flow Field where every cell points towards the closest target_cell i
 ### Vector2 get_cell_direction(Vector2 cell)
 Gives the direction of the Flow Field in the cell. returns zero vector if the cell is the target cell or there is no way to the target
 
-###get_cell_distance(Vector2 cell)
+### get_cell_distance(Vector2 cell)
 Returns the distance from the cell to the next target_cell. The distance includes the cost of the tiles e.g. if the target cell is 3 Tiles with 5 cost each from the target_cell away then this function will return 15
 
-###update_play_field()
+### update_play_field()
 Updates the representation of the TileMap in the Flow Field. If you change the TileMap you need to call this function before you create a new Flow Field or else the Flow Field will be based on the non updated TileMap. This function is not yet optimized and should only be called after the TileMap was changed and a new Flow Field will be created
 

@@ -14,21 +14,21 @@ func _ready():
 func update_play_field() -> void:
 	flow_field_module.set_play_field(self, tiles)
 
-func create_flow_field(start_cell:Vector2, target_cells=[]) -> void:
+func create_flow_field(target_cell:Vector2, important_cells=[]) -> void:
+	for cell in important_cells:
+		if not typeof(cell) == 5:
+			return
+	flow_field_module.create_flow_field([target_cell],important_cells, allow_diagonals,diagonals_need_neighbors)
+
+func create_flow_fieldv(target_cells:Array, important_cells=[]) -> void:
 	for cell in target_cells:
 		if not typeof(cell) == 5:
 			return
-	flow_field_module.create_flow_field([start_cell],target_cells, allow_diagonals,diagonals_need_neighbors)
-
-func create_flow_fieldv(start_cells:Array, target_cells=[]) -> void:
-	for cell in start_cells:
-		if not typeof(cell) == 5:
-			return
-	for cell in target_cells:
+	for cell in important_cells:
 		if not typeof(cell) == 5:
 			return
 
-	flow_field_module.create_flow_field(start_cells,target_cells, allow_diagonals,diagonals_need_neighbors)
+	flow_field_module.create_flow_field(target_cells,important_cells, allow_diagonals,diagonals_need_neighbors)
 
 func get_cell_direction(cell:Vector2) -> Vector2:
 	return flow_field_module.get_cell_direction(cell)

@@ -1,3 +1,4 @@
+If you want the source code to the module visit https://github.com/Fabian-Hanitzsch/Flow-Field-Code. This module will get some updates in the next few days.
 
 # Flow Field
 
